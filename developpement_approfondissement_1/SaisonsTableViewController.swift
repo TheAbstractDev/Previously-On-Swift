@@ -1,40 +1,28 @@
 //
-//  SearchTableViewController.swift
+//  SaisonsTableViewController.swift
 //  
 //
-//  Created by Sofiane Beors on 19/06/2015.
+//  Created by Sofiane Beors on 21/06/2015.
 //
 //
 
 import UIKit
 
+class SaisonsTableViewController: UITableViewController {
 
-class SearchTableViewController: UITableViewController {
-
-    var resultArray = NSMutableArray()
     var token:String!
-    var s:Serie!
+    var serieId:Int!
+    var s: Serie!
+    var seasons = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Ajouter une serie"
 
-        s = Serie(token: self.token)
-        
-        var config : SwiftLoader.Config = SwiftLoader.Config()
-        config.spinnerColor = UIColor(rgba: "#3498db")
-        config.titleTextColor = UIColor(rgba: "#3498db")
-        
-        config.backgroundColor = UIColor(rgba: "#ecf0f1")
-        
-        SwiftLoader.setConfig(config)
-        
-        SwiftLoader.show(title: "Chargement", animated: true)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.s.searchSeries(array: self.resultArray, tableView: self.tableView, serieName: "")
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,31 +33,27 @@ class SearchTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.resultArray.count
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("resultCell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = self.resultArray.objectAtIndex(indexPath.row) as? String
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+
+        // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let rotateTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
-        cell.layer.transform = rotateTransform
-        
-        UIView.animateWithDuration(0.8, animations: { () -> Void in
-            cell.layer.transform = CATransform3DIdentity
-        })
-    }
+    */
 
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
